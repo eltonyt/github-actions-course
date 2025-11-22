@@ -1,0 +1,10 @@
+name: 04 - Using Actions
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        run: cd ../../04-using-actions/react-app
+      - name: Printing Folders
+        run: tree
