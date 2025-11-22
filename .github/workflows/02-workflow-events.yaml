@@ -1,9 +1,9 @@
 name: 02 - Workflow Events
 on:
-  push:
+  #   push:
   pull_request:
-  schedule:
-    - cron: "*/5 0 * * 0" # Every 5 minutes
+  #   schedule:
+  # - cron: "*/5 0 * * 0" # Every 5 minutes
   workflow_dispatch: # Manual trigger from UI
 
 jobs:
