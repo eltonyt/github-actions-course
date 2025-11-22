@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        run: cd ../../04-using-actions/react-app
+        uses: actions/checkout@v4
       - name: Printing Folders
-        run: tree
+        run: ls
