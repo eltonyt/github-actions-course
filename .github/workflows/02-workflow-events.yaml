@@ -1,5 +1,11 @@
 name: 02 - Workflow Events
-on: push
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "*/5 0 * * 0" # Every 5 minutes
+  workflow_dispatch: # Manual trigger from UI
+
 jobs:
   echo:
     runs-on: ubuntu-latest
