@@ -1,5 +1,8 @@
 name: 06 - Contexts
 run-name: 06 - Contexts | DEBUG - ${{ inputs.test }}
+env:
+  MY_WORKFLOW_VAR: "workflow"
+  MY_OVERWRITTEN_VAR: "workflow"
 on:
   push:
   workflow_dispatch:
@@ -25,3 +28,12 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "MY_VAR is set to: ${{ vars.MY_VAR }}"
+      - name: Print Env Variables
+        run: |
+          MY_OVERWRITTEN_VAR="step"
+          echo "Workflow env: $MY_WORKFLOW_VAR"
+          echo "Overwritten env: $MY_OVERWRITTEN_VAR"
+      - name: Print Env Variables - Duplicated
+        run: |
+          echo "Workflow env: $MY_WORKFLOW_VAR"
+          echo "Overwritten env: $MY_OVERWRITTEN_VAR"
