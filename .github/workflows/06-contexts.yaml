@@ -1,5 +1,5 @@
 name: 06 - Contexts
-run-name: My custom workflow run name - ${{ runner.os }}
+run-name: My custom workflow run name - ${{ github.runner.os }}
 on:
   - push
   - workflow_dispatch
