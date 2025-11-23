@@ -18,5 +18,4 @@ jobs:
           echo "Run Number: ${{ github.run_number }}"
       - name: Retrieve Variable
         run: |
-          MY_VAR="Hello from Contexts!"
           echo "MY_VAR is set to: $MY_VAR"
