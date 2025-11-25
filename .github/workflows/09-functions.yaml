@@ -20,3 +20,6 @@ jobs:
       - name: I will execute
         if: ${{ !cancelled() }}
         run: echo "I will always print, except when the workflow is cancelled."
+      - name: I will execute when cancelled
+        if: ${{ cancelled() }}
+        run: echo "I will execute when the workflow is cancelled."
