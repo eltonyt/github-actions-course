@@ -28,11 +28,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    environment: ${{ inputs.target }}
+    if: ${{ !inputs.dry-run }}
     steps:
       - name: Deploy
-        if: ${{ !inputs.dry-run }}
-        run: |
-          environment = ${{ inputs.target }}
-      - name: Deploy
-        run: |
-          echo "Deploying to ${{ inputs.target }} environment"
+        run: echo "Deploying to ${{ inputs.target }} environment"
