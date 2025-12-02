@@ -1,0 +1,29 @@
+name: 13 - Using Caching
+on:
+  workflow_dispatch:
+    inputs:
+      use-cache:
+        description: "Whether to execute cache step"
+        type: boolean
+        default: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "24.11.0"
+      - name: Install dependencies
+        working-directory: "13-caching/react-app"
+        run: npm ci
+      - name: Testing
+        working-directory: "13-caching/react-app"
+        run: npm run test
+      - name: Building
+        working-directory: "13-caching/react-app"
+        run: npm run build
+      - name: Deploying to nonprod
+        run: echo "Deploying to nonprod"
